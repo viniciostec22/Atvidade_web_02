@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+
+    {%block titleh%}
+        {% if produto %}
+            Editar | {{produto.nome}}
+        {% else %}
+            Novo Produto
+        {% endif %}
+    {%endblock titleh%}
+
+    {%block titulo%}
+        {% if produto  %}
+            Editar <span style="color: blue; font-weight: bold";>{{produto.nome}}</span>
+        {% else %}
+            Novo Produto
+        {% endif %}
+    {%endblock titulo%}
+
+{%block conteudo%}
+
+    <form method="POST" class="form" autocomplete="off">
+        {% csrf_token %}
+            {% bootstrap_form forms %}
+        {% if produto %}
+            <input type="submit" class="btn btn-success" value="Salvar">
+            <a href="{% url 'produtos' %}"<button type="button" class="btn btn-secondary">Voltar</button></a>
+            <a href="{{produto.id}}" data-toggle="modal" data-target="#modalExemplo{{produto.id}}"><button type="button" class="btn btn-danger">Excluir</button></a>
+            <!-- Modal -->
+            {% include 'modulos/_delete_modal.html'%}
+        {% else %}
+            <input type="submit" class="btn btn-success" value="Salvar">
+            <input type="reset" class="btn btn-primary" value="Limpar">
+            <a href="{% url 'produtos' %}"<button type="button" class="btn btn-secondary">Voltar</button></a>
+        {% endif %}
+    </form>
+
+{%endblock conteudo%}
+
+

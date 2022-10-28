@@ -1,0 +1,12 @@
+INSERT INTO produtos_produto VALUES (1,'Sapato', 100, 'Tenis legal.', 2);
+INSERT INTO produtos_produto VALUES (2,'Chinelo', 253.5, 'O basicao', 2);
+INSERT INTO produtos_produto VALUES (3,'Camisa Polo', 49, 'Veste bem.', 1);
+INSERT INTO produtos_produto VALUES (4,'Sapatenis', 100, 'Ta na moda', 2);
+INSERT INTO produtos_produto VALUES (5,'Crocs', 80.6, 'Para quem ta sem dinheiro', 2);
+INSERT INTO produtos_produto VALUES (6,'Chinelo Nike', 89, 'Chinelo bem confortavel', 2);
+INSERT INTO produtos_produto VALUES (7,'Blusa', 145, 'Unissex', 1);
+INSERT INTO produtos_produto VALUES (8,'T_shirt', 120, 'Todos os gostos', 1);
+INSERT INTO produtos_produto VALUES (9,'Blusao', 30, 'Para tempos frios', 1);
+INSERT INTO produtos_produto VALUES (10,'Camisa regata', 800, 'Para musculacao', 1);
+INSERT INTO produtos_produto VALUES (11,'Bota', 400, 'Do exercito', 2);
+INSERT INTO produtos_produto VALUES (12,'Havaianas', 250, 'As legitimas', 2);

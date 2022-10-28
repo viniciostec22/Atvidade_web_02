@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{%block titleh%}Categorias{%endblock titleh%}
+
+{%block titulo%}Minhas Categorias {%endblock titulo%}
+
+{%block conteudo%}
+<!-- Page Content -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for categoria in categorias %}
+          <tr>
+            <td>{{categoria.nome}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+      <!-- Paginacao -->
+      {%include 'modulos/_paginacao_nav.html'%}
+
+{%endblock conteudo%}

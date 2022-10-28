@@ -1,0 +1,40 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  {%include 'modulos/_base_head.html'%}
+ 
+  <title>{%block titleh%}{%endblock titleh%}</title>
+</head>
+
+<body>
+
+  {%include 'modulos/_base_nav.html'%}
+
+
+  <!-- Conteudo -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <br>
+        {%block mensagem%}
+        {%endblock mensagem%}
+        <h1 class="mt-5">{%block titulo%}{%endblock titulo%}</h1>
+
+        {%block conteudo%}
+        {%endblock conteudo%}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  {% bootstrap_javascript jquery="full" %}
+
+</body>
+
+</html>
