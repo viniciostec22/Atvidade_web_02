@@ -14,8 +14,8 @@
 {%block search%}
 <div class="container">
   <div class="search-contaoner">
-      <form action="" class="search-form">
-          <input type="search" class="search-input" name="search">
+      <form action="{% url 'produtos' %}" class="search-form">
+          <input type="search" class="search-input" name="termo">
           <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
       </form>
   </div>
@@ -34,6 +34,7 @@
         <table  class="table">
         <thead>
           <tr> 
+            <th>ID</th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Descrição</th>
@@ -44,6 +45,7 @@
         <tbody>
           {% for produto in produtos %}
           <tr>
+            <td>{{produto.id}}</td>
             <td> <a href="{% url 'edit_produto' produto.id %}">{{produto.nome}}</a> </td>
             <td>{{produto.preco}}</td>
             <td>{{produto.descricao}}</td>

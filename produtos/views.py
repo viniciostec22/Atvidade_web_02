@@ -4,13 +4,19 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import Produto, Categoria
 from .forms import ProdutoModelForm
+from PIL import Image
 
 def index(request):
     return render(request, 'produtos/index.html')
 
 def produtos(request):
-    
-    produtos = Produto.objects.all()
+    if request.GET.get('termo'):
+            termo = request.GET.get('termo')
+            produtos = Produto.objects.filter(nome__icontains=termo)
+    else:
+            produtos = Produto.objects.order_by('nome')
+    #produtos = Produto.objects.all()
+   
     paginator = Paginator(produtos, 10)
     page = request.GET.get('page')
     produtos = paginator.get_page(page)

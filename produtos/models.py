@@ -1,4 +1,5 @@
 from ctypes import resize
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -10,6 +11,7 @@ class Categoria(models.Model):
 
 class Produto(models.Model):
     nome = models.CharField(max_length=150)
+    img = models.FileField(upload_to="img/%Y/%m/%d/", blank=True,default='')
     preco = models.FloatField()
     descricao = models.TextField(blank=True)
     categoria = models.ForeignKey(Categoria,on_delete=models.DO_NOTHING)

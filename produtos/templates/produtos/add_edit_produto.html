@@ -19,7 +19,7 @@
 
 {%block conteudo%}
 
-    <form method="POST" class="form" autocomplete="off">
+    <form method="POST" class="form" autocomplete="off" enctype="multipart/form-data">
         {% csrf_token %}
             {% bootstrap_form forms %}
         {% if produto %}
