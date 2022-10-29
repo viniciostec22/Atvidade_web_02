@@ -27,14 +27,14 @@
 
 
 <!-- Page Content -->
-<a href="{% url 'add_produto'%}"><button type="button" class="btn btn-primary">+ Adicionar Produto</button></a>
+<a href="{% url 'add_produto'%}"><button type="button" class="btn btn-primary">+ Adicionar Produto</button></a><br><br>
       
      
      
         <table  class="table">
         <thead>
           <tr> 
-           
+            <th>Foto</th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Descrição</th>
@@ -45,7 +45,12 @@
         <tbody>
           {% for produto in produtos %}
           <tr>
+            <td style="width:100px">
+              {% if produto.img %}
+                      <img src="{{produto.img.url}}" alt="..." class="img-thumbnail ">             
+             {% endif %}
             
+            </td>
             <td> <a href="{% url 'edit_produto' produto.id %}">{{produto.nome}}</a> </td>
             <td>{{produto.preco}}</td>
             <td>{{produto.descricao}}</td>

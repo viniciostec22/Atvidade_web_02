@@ -15,10 +15,10 @@ def index(request):
 
 def produtos(request):
     if request.GET.get('termo'):
-            termo = request.GET.get('termo')
-            produtos = Produto.objects.filter(Q(nome__icontains=termo) | Q(preco__icontains=termo) | Q(descricao__icontains=termo))
+        termo = request.GET.get('termo')
+        produtos = Produto.objects.filter(Q(nome__icontains=termo) | Q(preco__icontains=termo) | Q(descricao__icontains=termo))
     else:
-            produtos = Produto.objects.order_by('-id')
+        produtos = Produto.objects.order_by('-id')
     
     paginator = Paginator(produtos, 10)
     page = request.GET.get('page')
@@ -59,11 +59,10 @@ def del_produto(request, produto_id):
 
 def categorias(request):
     if request.GET.get('termo'):
-            termo = request.GET.get('termo')
-            categorias = Categoria.objects.filter(nome__icontains=termo)
-    
+        termo = request.GET.get('termo')
+        categorias = Categoria.objects.filter(Q(nome__icontains=termo))
     else:
-            categorias = Categoria.objects.order_by('nome')
+        categorias = Categoria.objects.order_by('nome')
 
     categorias = Categoria.objects.all()
     paginator = Paginator(categorias, 10)
