@@ -19,9 +19,17 @@
 
 {%block conteudo%}
 
+        {% if produto.img %}
+            <div class="row">
+                <div class="col-xs-6 col-md-5">
+                    <img src="{{produto.img.url}}" alt="..." class="img-thumbnail">
+                </div>
+            </div>
+        {% endif %}
+   
     <form method="POST" class="form" autocomplete="off" enctype="multipart/form-data">
-        {% csrf_token %}
-            {% bootstrap_form forms %}
+        {% csrf_token %}    
+        {% bootstrap_form forms %}
         {% if produto %}
             <input type="submit" class="btn btn-success" value="Salvar">
             <a href="{% url 'produtos' %}"<button type="button" class="btn btn-secondary">Voltar</button></a>

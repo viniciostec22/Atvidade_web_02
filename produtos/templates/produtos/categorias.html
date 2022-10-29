@@ -1,11 +1,30 @@
 {% extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
 
 {%block titleh%}Categorias{%endblock titleh%}
+{%block mensagem%}
+
+{% bootstrap_messages %}
+
+{%endblock mensagem%}
 
 {%block titulo%}Minhas Categorias {%endblock titulo%}
 
+{%block search%}
+<div class="container">
+  <div class="search-contaoner">
+      <form action="{% url 'categorias' %}" class="search-form">
+          <input type="search" class="search-input" name="termo" value="{{ request.GET.termo }}">
+          <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+      </form>
+  </div>
+</div>
+{%endblock search%}
+
 {%block conteudo%}
 <!-- Page Content -->
+<a href="{% url 'add_categoria'%}"><button type="button" class="btn btn-primary">+ Adicionar Categoria</button></a>
       <table class="table">
         <thead>
           <tr>
@@ -16,7 +35,14 @@
           {% for categoria in categorias %}
           <tr>
             <td>{{categoria.nome}}</td>
+            <td>
+              <a title='editar'  href="{% url 'edit_categoria' categoria.id %}"><img src="{% static '/vendor/images/editar.png'%}" width='33px'></a>
+              <a title='excluir' href="{{categoria.id}}" style="padding: 20px;" data-toggle="modal" data-target="#modalExemplo{{categoria.id}}"><img src="{% static '/vendor/images/excluir.png'%}" width='35px'></a>
+            </td> 
+             <!-- Modal -->
+             {% include 'modulos/_delete_modal_categoria.html'%}
           </tr>
+          
           {%endfor%}
         </tbody>
       </table>
