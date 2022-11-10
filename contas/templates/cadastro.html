@@ -20,7 +20,7 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
   
-                  <form> {% csrf_token %}
+                  <form method="POST" action="{% url 'cadastro' %}" > {% csrf_token %}
   
                     <div class="d-flex align-items-center mb-3 pb-1">
                         <img src="{% static '/img/if.png' %}" alt="My image"id="img"/>
@@ -29,26 +29,26 @@
   
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Cadastro</h5>
                     <div class="form-outline mb-4">
-                        <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                        <input type="email" id="form2Example17" class="form-control form-control-lg" name="nome" />
                         <label class="form-label" for="form2Example17">Nome</label>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                        <input type="email" id="form2Example17" class="form-control form-control-lg" name="sobrenome" />
                         <label class="form-label" for="form2Example17">Sobre nome</label>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                      <input type="email" id="form2Example17" class="form-control form-control-lg" name="email" />
                       <label class="form-label" for="form2Example17">Email</label>
                     </div>
   
                     <div class="form-outline mb-4">
-                      <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                      <input type="password" id="form2Example27" class="form-control form-control-lg" name="senha" />
                       <label class="form-label" for="form2Example27">Senha</label>
                     </div>
   
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button">Cadastrar</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit">Cadastrar</button>
                     </div>
   
                    

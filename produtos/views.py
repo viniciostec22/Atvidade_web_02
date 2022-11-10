@@ -4,7 +4,6 @@ from django.contrib import messages
 from .models import Produto, Categoria
 from .forms import ProdutoModelForm, CategoriaModelForm
 from django.shortcuts import get_object_or_404
-from PIL import Image
 import os
 from django.conf import settings
 from django.db.models import Q
