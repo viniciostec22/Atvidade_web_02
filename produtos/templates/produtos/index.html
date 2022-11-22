@@ -1,10 +1,15 @@
 {% extends 'base.html'%}
-
+{% load bootstrap4 %}
+{% load static %}
 
 {%block titleh%}Home{%endblock titleh%}
 
 {%block titulo%}Home{%endblock titulo%}
+{%block mensagem%}
 
+{% bootstrap_messages %}
+
+{%endblock mensagem%}
 {%block conteudo%}
 
 Conteúdo da Página. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium minus molestias deserunt

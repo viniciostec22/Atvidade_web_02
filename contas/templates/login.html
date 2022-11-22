@@ -20,8 +20,12 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
   
-                  <form> {% csrf_token %}
-  
+                  <form method="POST"> {% csrf_token %}
+                    {%block mensagem%}
+
+                       {% bootstrap_messages %}
+
+                    {%endblock mensagem%}
                     <div class="d-flex align-items-center mb-3 pb-1">
                         <img src="{% static '/img/if.png' %}" alt="My image"id="img"/>
                      
@@ -30,8 +34,8 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Fazer login</h5>
   
                     <div class="form-outline mb-4">
-                      <input type="email" id="form2Example17" class="form-control form-control-lg" name="email" />
-                      <label class="form-label" for="form2Example17">Email</label>
+                      <input type="text" id="form2Example17" class="form-control form-control-lg" name="usuario" />
+                      <label class="form-label" for="form2Example17">usuario</label>
                     </div>
   
                     <div class="form-outline mb-4">
